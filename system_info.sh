@@ -1,0 +1,11 @@
+echo "System information:"
+echo "-------------------"
+echo "Operating System: $(uname -o)"
+echo "Kernel Version: $(uname -r)"
+echo "Architecture: $(uname -m)"
+echo "Hostname: $(hostname)"
+echo "Uptime: $(uptime -p)"
+echo "Memory Usage: $(free -h | awk '/^Mem:/ {print $3
+" used / "$2" total}")"
+echo "Disk Usage: $(df -h / | awk 'NR==2 {print $3" used / "$2" total ("$5" used)"}')"
+echo "CPU Load: $(top -bn1 | grep "Cpu(s)" | awk '{print $2 + $4"%"}')"                         
